@@ -33,6 +33,14 @@ app.listen(3000)
 
 Api Documentation:
 ```js
+
+1. List All
+2. List all with end date before a given date
+3. List all created after a given date
+4. List all created by a particular user
+5. Search tasks by using full text - Task name
+6. Search tasks by using full text - Task description
+
 exports.list_all_tasks = function(req, res) {  
   var data = req.query;
   var searchQuery = {};
@@ -54,6 +62,7 @@ exports.list_all_tasks = function(req, res) {
   });
 };
 
+Auto-suggest and Auto-complete feature for the search box
 
 exports.autosearch_tasks = function(req, res) {  
   var data = req.query;
@@ -70,7 +79,7 @@ exports.autosearch_tasks = function(req, res) {
 
 
 
-
+Add Task
 exports.create_a_task = function(req, res) {
   var new_task = new Task(req.body);
   new_task.save(function(err, task) {
@@ -80,6 +89,7 @@ exports.create_a_task = function(req, res) {
   });
 };
 
+Get Specific Task
 
 exports.read_a_task = function(req, res) {
   Task.findById(req.params.taskId, function(err, task) {
@@ -89,6 +99,7 @@ exports.read_a_task = function(req, res) {
   });
 };
 
+Update Task
 
 exports.update_a_task = function(req, res) {
   Task.findOneAndUpdate({_id: req.params.taskId}, req.body, {new: true}, function(err, task) {
@@ -98,6 +109,7 @@ exports.update_a_task = function(req, res) {
   });
 };
 
+Delete Task
 
 exports.delete_a_task = function(req, res) {
 
