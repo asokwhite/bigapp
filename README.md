@@ -13,6 +13,10 @@ $ npm install mongodb --save
 
 $ npm install
 ```
+Create DB in Mongodb
+```bash
+bigapp
+```
 
   Start the server:
 
